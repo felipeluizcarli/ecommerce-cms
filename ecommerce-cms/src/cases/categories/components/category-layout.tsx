@@ -7,6 +7,7 @@ import {
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { CategoryDataTable } from "./data-table/category-data-table"
+import { Outlet } from "react-router-dom"
 
 export function CategoryLayout() {
     return (
@@ -25,6 +26,7 @@ export function CategoryLayout() {
 
             <div>
                 <CategoryDataTable />
+                <Outlet />
             </div>
         </div>
     )
