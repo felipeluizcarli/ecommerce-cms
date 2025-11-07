@@ -23,6 +23,7 @@ export function SidebarForm({
     children,
     onSave,
     loading
+
 }:SidebarFormProps) {
     const navigate = useNavigate();
     const location = useLocation();
@@ -69,6 +70,11 @@ export function SidebarForm({
                         </SheetClose>
 
                     </div>
+                    <Tooltip>   
+                        <TooltipTrigger asChild>
+                            <p>remover o registro</p>
+                        </TooltipTrigger>
+                    </Tooltip>
                 </SheetFooter>
             </SheetContent>
         </Sheet>
