@@ -1,25 +1,25 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import type { CategoryDTO } from "../../dtos/Order.dto";
 import { DataTableAction } from "@/components/layout/data-table-actions";
+import type { CustomerDTO } from "../../dtos/customer";
 
-export const categoryColumns: ColumnDef<CategoryDTO>[] = [
+export const customerColumns: ColumnDef<CustomerDTO>[] = [
     {
         accessorKey: 'id',
         header: 'Id'
     },
     {
         accessorKey: 'name',
-        header: 'Nome da Categoria'
+        header: 'Nome Cliente'
     },
     {
         id: 'actions',
         enableHiding: false,
         cell: ({ row }) => {
-            const category = row.original;
+            const brand = row.original;
 
             return(
                 <div className="flex justify-end mr-4">
-                    <DataTableAction itemId={category.id!} />
+                    <DataTableAction itemId={brand.id!} />
                 </div>
             )
         }

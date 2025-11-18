@@ -1,0 +1,18 @@
+import { api } from "../../../lib/axios";
+import type { CustomerDTO } from "../dtos/customer";
+
+const _ENDPOINT = '/brands';
+
+export const BrandService = {
+
+    async list(): Promise<CustomerDTO[]> {
+        const result = await api.get(_ENDPOINT);
+        return result.data;
+    },
+
+    async getById(id: string): Promise<CustomerDTO> {
+        const result = await api.get(`${_ENDPOINT}/${id}`);
+        return result.data;
+    },
+
+};

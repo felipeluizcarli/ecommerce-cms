@@ -1,18 +1,14 @@
 
 import { BreadCrumb } from "@/components/layout/bread-crumb"
-import { ProductDataTable } from "./data-table/product-data-table"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
-import { Plus, Search } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Outlet, useNavigate } from "react-router-dom"
+import { Search } from "lucide-react";
+import { useState } from "react"
+import { CustomerDataTable } from "./data-table/customer-data-table";
+import { Outlet } from "react-router-dom";
 
-export function ProductLayout() {
-
-    const navigate = useNavigate();
-    
-    function handleCreate() {
-        navigate('/products/new');
-    }
+export function CustomerLayout() {
+  
+    const [searchTerm, setSearchTerm] = useState('');
 
     return (
         <div className="p-4">
@@ -23,21 +19,18 @@ export function ProductLayout() {
 
                 <div className="flex flex-row justify-end gap-4 my-4">
                     <InputGroup className="max-w-96">
-                        <InputGroupInput placeholder="Search..." />
+                        <InputGroupInput placeholder="Procurar..." 
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
                         <InputGroupAddon>
                             <Search />
                         </InputGroupAddon>
                     </InputGroup>
-                    <Button
-                        onClick={handleCreate}
-                    >
-                        <Plus />
-                        Adicionar
-                    </Button>
                 </div>
 
                 <div>
-                    <ProductDataTable />
+                    <CustomerDataTable searchTerm={searchTerm} />
                     <Outlet />
                 </div>
 
